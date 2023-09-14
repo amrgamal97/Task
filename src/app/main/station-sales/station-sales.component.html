@@ -1,0 +1,19 @@
+<div class="head-title d-flex justify-content-between align-items-center">
+  <h3>
+    <img
+      src="../../assets/icon/gas-station-svgrepo-com-1.svg"
+      alt=""
+      class="me-2"
+    />
+    {{ stations.name }}
+  </h3>
+  <p [style.color]="stations.value === 'NM' ? '#B9CDE2' : '#3d5161'">
+    {{ stations.value }}
+  </p>
+</div>
+<div class="progress mt-3 h-auto" [class.active]="!stations.progress">
+  <mat-progress-bar
+    mode="determinate"
+    [value]="stations.progress"
+  ></mat-progress-bar>
+</div>

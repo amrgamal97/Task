@@ -1,0 +1,198 @@
+@import "variables";
+@import "typography";
+@import "mixins";
+
+main {
+  .graph-list-switcher {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    padding: 0;
+    margin: 0;
+    .switcher-container {
+      display: flex;
+      justify-content: space-evenly;
+      border-radius: 50px;
+      align-items: center;
+      cursor: pointer;
+      background-color: $white-color;
+      .graph-view,
+      .list-view {
+        width: 100%;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50px;
+        // padding: 20px 0;
+        transition: all 0.3s ease-in-out;
+        position: relative;
+        padding: 15px 30px;
+      }
+      .graph-view {
+        transition: all 0.3s ease-in-out;
+        &.active {
+          transition: all 0.3s ease-in-out;
+          background-color: $main-orange;
+          &::before {
+            background-color: $main-orange;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50px;
+            left: 0;
+            // background-color: $main-orange;
+            z-index: -1;
+            transition: all 0.3s ease-in-out;
+          }
+          h3 {
+            color: $white-color;
+          }
+        }
+      }
+      .list-view {
+        transition: all 0.3s ease-in-out;
+        &.active {
+          transition: all 0.3s ease-in-out;
+          background-color: $main-orange;
+          &::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50px;
+            right: 0;
+            z-index: -1;
+            transition: all 0.3s ease-in-out;
+          }
+          h3 {
+            color: $white-color;
+          }
+        }
+      }
+      h3 {
+        transition: all 0.3s ease-in-out;
+        margin: 0;
+        font-family: $montserrat-font-family;
+        color: $main-text-color;
+        font-size: 12px;
+        font-weight: $medium;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+    }
+  }
+  .row.stations {
+    @include hideScrollbar;
+  }
+
+  .stations-graph {
+    background-color: $white-color;
+    padding: 15px;
+    border-radius: 24px;
+    .head-title {
+      border-bottom: 1px solid #e2e2e2;
+      padding-bottom: 1rem;
+      h3 {
+        font-family: $montserrat-font-family;
+        font-weight: $bold;
+        font-size: 12px;
+        color: $main-text-color;
+        margin: 0;
+      }
+      .pages {
+        gap: 1rem;
+        .page {
+          position: relative;
+          cursor: pointer;
+          &.active {
+            h3 {
+              color: $main-orange;
+            }
+            &::before {
+              content: "";
+              position: absolute;
+              bottom: -18px;
+              width: 100%;
+              border-radius: 20px;
+              height: 3px;
+              background-color: #ff7f5c;
+            }
+          }
+        }
+      }
+    }
+    .graph-details {
+      padding: 15px;
+    }
+  }
+  .radar-graph {
+    text-align: center;
+    h3 {
+      font-size: $bold;
+      font-family: $montserrat-font-family;
+      font-size: 20px;
+      color: $main-text-color;
+    }
+    .l-column {
+      .title {
+        margin-bottom: 3rem;
+        font-size: 20px;
+      }
+      h3,
+      p {
+        color: $main-text-color;
+        font-weight: $bold;
+        margin: 0;
+      }
+      h3 {
+        font-family: $montserrat-font-family;
+        font-size: 12px;
+      }
+      p {
+        font-size: 16px;
+        font-family: $nunito-font-family;
+      }
+      .station-sales {
+        max-height: 500px;
+        overflow: auto;
+        height: 100%;
+        // padding: 0 20px;
+        @include hideScrollbar;
+        .station {
+          margin-bottom: 2rem;
+        }
+      }
+    }
+  }
+}
+
+hr {
+  margin: 0 !important;
+}
+
+// ANGULAR MATERIAL CUSTOMIZATION
+::ng-deep {
+  .mdc-linear-progress__bar-inner {
+    border-color: $main-orange !important;
+  }
+  .mat-mdc-progress-bar .mdc-linear-progress__buffer-bar {
+    background-color: $beige !important;
+  }
+  .mat-mdc-progress-bar {
+    --mdc-linear-progress-active-indicator-height: 6px !important;
+    --mdc-linear-progress-track-height: 6px !important;
+  }
+  .progress.active {
+    .mat-mdc-progress-bar .mdc-linear-progress__buffer-bar {
+      background-color: $bar-body !important;
+    }
+  }
+  .polarArea canvas {
+    border-radius: 12px; /* Adjust the border-radius as needed */
+  }
+}

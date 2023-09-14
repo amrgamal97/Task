@@ -1,0 +1,18 @@
+@import "variables";
+
+.main-project {
+  min-height: 100vh;
+  display: flex;
+
+  .pages {
+    width: 100%;
+    header {
+      width: 100%;
+      background-color: $white-color;
+      height: 100px;
+    }
+    main {
+      padding: 15px;
+    }
+  }
+}

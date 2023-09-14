@@ -1,0 +1,67 @@
+<header>
+  <div class="left-side">
+    <div class="box-container">
+      <div class="pointer"></div>
+      <img src="assets/icon/gas-station-svgrepo-com.svg" alt="" />
+      <h3>2/3</h3>
+      <p>
+        Monitored <br />
+        Stations
+      </p>
+    </div>
+    <div class="box-container">
+      <div class="pointer"></div>
+      <i class="material-icons">replay</i>
+      <h3>20<span>s</span></h3>
+      <p>
+        Monitored <br />
+        Stations
+      </p>
+    </div>
+  </div>
+
+  <div class="center-side" role="button">
+    <div class="switcher-container">
+      <div
+        class="today-date"
+        [class.active]="activatedPeriodPage === 'today'"
+        (click)="switchPeriodPage('today')"
+      >
+        <h3>Today</h3>
+      </div>
+      <div
+        class="yesterday-date"
+        [class.active]="activatedPeriodPage === 'yesterday'"
+        (click)="switchPeriodPage('yesterday')"
+      >
+        <h3>Yesterday</h3>
+      </div>
+      <div
+        class="last-week-date"
+        [class.active]="activatedPeriodPage === 'last-week'"
+        (click)="switchPeriodPage('last-week')"
+      >
+        <h3>Last week</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="right-side" role="button">
+    <div class="filter-start">
+      <i class="material-icons">play_arrow</i>
+      <p-calendar
+        [(ngModel)]="dateStart"
+        [showIcon]="true"
+        placeholder="Start date - time"
+      ></p-calendar>
+    </div>
+    <div class="filter-end">
+      <i class="material-icons">stop</i>
+      <p-calendar
+        [(ngModel)]="dateEnd"
+        [showIcon]="true"
+        placeholder="Start date - time"
+      ></p-calendar>
+    </div>
+  </div>
+</header>

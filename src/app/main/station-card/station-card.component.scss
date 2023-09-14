@@ -1,0 +1,52 @@
+@import "variables";
+@import "typography";
+
+.cart-item {
+  background-color: $white-color;
+  width: 100%;
+  border-radius: 24px;
+  padding: 15px 20px 0 20px;
+  h3 {
+    font-size: 18px;
+    font-weight: $bold;
+    color: $main-text-color;
+    font-family: $montserrat-font-family;
+    margin: 0;
+    // width: 30%;
+    // text-align: center;
+  }
+  .head-title {
+    position: relative;
+    .pointer {
+      bottom: 5px;
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      left: -12px;
+      border-radius: 50%;
+      background-color: $main-orange;
+    }
+  }
+  .cart-details {
+    padding: 15px 0;
+    .col-md-4 {
+      display: flex;
+      // justify-content: space-between;
+      // align-items: center;
+      gap: 60px;
+    }
+    .box {
+      display: flex;
+      align-items: center;
+    }
+    h3 {
+      font-size: 12px;
+    }
+    p {
+      font-size: 12px;
+      font-weight: $medium;
+      font-family: $montserrat-font-family;
+      color: $main-text-color;
+    }
+  }
+}

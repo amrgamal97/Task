@@ -1,0 +1,201 @@
+@import "variables";
+@import "typography";
+
+%pointer {
+  .pointer {
+    bottom: 0;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    left: -12px;
+    background-color: $main-orange;
+    border-radius: 50%;
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  gap: 2rem;
+  .left-side {
+    display: flex;
+    gap: 4rem;
+    // justify-content: space-between;
+    .box-container {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      position: relative;
+      h3,
+      p {
+        margin: 0;
+        padding: 0;
+        font-family: $roboto-font-family;
+        font-weight: $regular;
+        line-height: initial;
+        color: $main-text-color;
+      }
+      h3 {
+        font-size: 22px;
+      }
+      p {
+        font-size: 10px;
+      }
+      i {
+        color: #3d5161;
+        font-size: 27px;
+        cursor: pointer;
+      }
+      img {
+        width: 30px;
+      }
+      @extend %pointer;
+    }
+  }
+  .switcher-container {
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 50px;
+    width: 400px;
+    align-items: center;
+    cursor: pointer;
+    background-color: $body-bg;
+    .today-date,
+    .yesterday-date,
+    .last-week-date {
+      width: 100%;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50px;
+      // padding: 20px 0;
+      transition: all 0.3s ease-in-out;
+      position: relative;
+    }
+    .today-date {
+      transition: all 0.3s ease-in-out;
+      &.active {
+        transition: all 0.3s ease-in-out;
+        background-color: $main-orange;
+        &::before {
+          background-color: $main-orange;
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 50px;
+          left: 0;
+          // background-color: $main-orange;
+          z-index: -1;
+          transition: all 0.3s ease-in-out;
+        }
+        h3 {
+          color: $white-color;
+        }
+      }
+    }
+    .yesterday-date {
+      transition: all 0.3s ease-in-out;
+      &.active {
+        transition: all 0.3s ease-in-out;
+        background-color: $main-orange;
+        &::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 50px;
+          right: 0;
+          z-index: -1;
+          transition: all 0.3s ease-in-out;
+        }
+        h3 {
+          color: $white-color;
+        }
+      }
+    }
+    .last-week-date {
+      transition: all 0.3s ease-in-out;
+      &.active {
+        transition: all 0.3s ease-in-out;
+        background-color: $main-orange;
+        &::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 50px;
+          right: 0;
+          z-index: -1;
+          transition: all 0.3s ease-in-out;
+        }
+        h3 {
+          color: $white-color;
+        }
+      }
+    }
+    h3 {
+      transition: all 0.3s ease-in-out;
+      margin: 0;
+      font-family: $montserrat-font-family;
+      color: $main-text-color;
+      font-size: 12px;
+      font-weight: $medium;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+    }
+  }
+  .right-side {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    .filter-start,
+    .filter-end {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      i {
+        color: $main-orange;
+        font-size: 30px;
+        cursor: pointer;
+      }
+      position: relative;
+      .text-placeholder {
+        p {
+          font-family: $roboto-font-family;
+          color: $main-text-color;
+          font-size: 12px;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+      }
+    }
+  }
+}
+
+:host::ng-deep {
+  .p-calendar-w-btn .p-inputtext {
+    border: none;
+    border-bottom: 2px solid $main-text-color;
+    border-radius: 0;
+  }
+  .p-calendar-w-btn .p-inputtext::placeholder {
+    font-size: 12px;
+  }
+  .p-calendar-w-btn .p-datepicker-trigger {
+    background: transparent;
+    border: none;
+    color: $main-text-color;
+    border-bottom: 2px solid $main-text-color;
+    border-radius: 0;
+  }
+  .p-inputtext:enabled:focus,
+  .p-button:enabled:hover {
+    box-shadow: none !important;
+    border-bottom: 2px solid $main-text-color !important;
+  }
+}

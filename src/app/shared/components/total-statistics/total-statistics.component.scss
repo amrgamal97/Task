@@ -1,0 +1,46 @@
+@import "variables";
+@import "typography";
+.box {
+  background-color: $white-color;
+  line-height: 1;
+  justify-content: flex-start;
+  display: flex;
+  padding: 25px 0 40px 25px;
+  border-radius: 24px;
+  // width: 210px;
+  text-align: start;
+  position: relative;
+  height: 100%;
+  .price {
+    h3 {
+      font-size: 28px;
+      color: $main-text-color;
+      font-family: $roboto-font-family;
+      font-weight: $regular;
+      span {
+        font-size: 20px;
+      }
+    }
+    p {
+      font-family: $montserrat-font-family;
+      font-weight: $bold;
+      font-size: 14px;
+      width: 90%;
+      color: $main-text-color;
+      margin-bottom: 8px;
+    }
+    .arrow-stat {
+      color: $main-orange;
+      display: flex;
+      align-items: center;
+      font-family: $roboto-font-family;
+      font-weight: $regular;
+      position: absolute;
+      bottom: 10px;
+      left: 15px;
+      i {
+        font-size: 32px;
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+<div class="cart-item">
+  <div class="head-title d-flex justify-content-between align-items-center">
+    <h3>
+      <div
+        class="pointer"
+        [ngStyle]="{
+          'background-color': stations.availability ? '#ff7f5c' : '#b9cde2'
+        }"
+      ></div>
+      <img
+        [src]="
+          stations.availability
+            ? '../../../assets/icon/gas-station-svgrepo-com-4.svg'
+            : '../../../assets/icon/gas-station-svgrepo-com-6.svg'
+        "
+        alt=""
+      />
+      {{ stations.name | uppercase }}
+    </h3>
+    <div class="menu">
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu"
+      >
+        <mat-icon>more_horiz</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <span>Edit</span>
+          <mat-icon>edit</mat-icon>
+        </button>
+        <hr />
+        <button mat-menu-item>
+          <span>Delete</span>
+          <mat-icon>delete_outline</mat-icon>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+  <hr />
+  <div class="cart-details">
+    <div class="row mb-3">
+      <div class="col-md-4">
+        <h3>Total Sales</h3>
+        <p>{{ stations.totalSales | number }} m³</p>
+      </div>
+      <div class="col-md-4">
+        <h3>Compression State</h3>
+        <p>{{ stations.compressionState }}</p>
+      </div>
+      <div class="col-md-4">
+        <h3>Max Transaction / hour</h3>
+        <p>{{ stations.maxTransaction }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <h3>Total Value</h3>
+        <p>{{ stations.totalValue | number }} EGP</p>
+      </div>
+      <div class="col-md-4">
+        <h3>Total Transaction Count</h3>
+        <p>{{ stations.totalTransaction }}</p>
+      </div>
+      <div class="col-md-4">
+        <h3>Max Transaction Date-Time</h3>
+        <p>{{ stations.maxTransactionDate }}</p>
+      </div>
+    </div>
+  </div>
+</div>

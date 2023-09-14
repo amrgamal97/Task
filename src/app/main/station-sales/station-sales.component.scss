@@ -1,0 +1,19 @@
+@import "typography";
+@import "variables";
+
+.head-title {
+  h3,
+  p {
+    margin: 0;
+  }
+  h3 {
+    font-family: $montserrat-font-family;
+    font-size: 12px;
+    color: $main-text-color;
+  }
+  p {
+    font-size: 16px;
+    font-family: $nunito-font-family;
+    color: $main-text-color;
+  }
+}

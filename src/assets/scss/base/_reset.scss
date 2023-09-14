@@ -1,0 +1,85 @@
+@import "variables";
+@import "typography";
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+  line-height: 1.15em;
+  font-family: $montserrat-font-family !important;
+  font-weight: $regular;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+body {
+  background-color: $body-bg !important;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  // overflow: hidden;
+  scrollbar-width: none;
+  background-color: $main-orange;
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #f4dbd4; /* Background color of the track */
+    border-radius: 10px; /* Adjust border radius */
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: $main-orange; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Adjust border radius */
+  }
+  /* Firefox */
+  scrollbar-width: thin; /* Adjust the width as per your preference */
+  scrollbar-color: #f1f1f1 $main-orange; /* Background color and thumb color */
+
+  /* For IE/Edge */
+  -ms-overflow-style: none; /* Hide the default scrollbar */
+  scrollbar-width: thin; /* Adjust the width as per your preference */
+  font: inherit !important;
+  font-weight: $regular !important;
+  font-size: 100%;
+  color: $black-color !important;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+button {
+  outline: none;
+}
+
+select {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 0px 10px;
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    border: none;
+  }
+  option {
+    color: $black-color;
+  }
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

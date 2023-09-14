@@ -1,0 +1,12 @@
+<aside>
+  <div class="main-logo">
+    <img src="assets/icon/PMS.svg" alt="" />
+    <ul>
+      <li *ngFor="let item of asideList">
+        <a routerLink="{{ item.route }}">
+          <img [src]="item.logo" alt="" />
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside>

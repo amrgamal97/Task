@@ -1,0 +1,14 @@
+<div class="box">
+  <div class="price">
+    <h3>{{ totalValue }} <span [innerHTML]="currency"></span></h3>
+    <p>{{ totalType }}</p>
+    <span class="arrow-stat" [style.color]="coloredIncremntal"
+      ><i
+        class="material-icons"
+        [ngStyle]="{ color: arrowDirection === 'up' ? '#00CBC0' : '#FF7F5C' }"
+        >arrow_drop_{{ arrowDirection }}</i
+      >
+      {{ incrementalValue }}</span
+    >
+  </div>
+</div>

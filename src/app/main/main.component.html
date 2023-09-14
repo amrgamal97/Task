@@ -1,0 +1,150 @@
+<main>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="statistics-boxes">
+        <div class="row">
+          <div class="col-md-3">
+            <!-- Total Statistics Component 1 -->
+            <app-total-statistics
+              [totalValue]="71028 | number"
+              [currency]="'EGP'"
+              [totalType]="'Total Value'"
+              [incrementalValue]="'2%'"
+              [arrowDirection]="'down'"
+            ></app-total-statistics>
+          </div>
+          <div class="col-md-3">
+            <!-- Total Statistics Component 2 -->
+            <app-total-statistics
+              [totalValue]="20000 | number"
+              [currency]="'m³'"
+              [totalType]="'Total Sales'"
+              [incrementalValue]="'50 m³'"
+              [arrowDirection]="'up'"
+              [coloredIncremntal]="'#00CBC0'"
+            ></app-total-statistics>
+          </div>
+          <div class="col-md-3">
+            <!-- Total Statistics Component 3 -->
+            <app-total-statistics
+              [totalValue]="20000 | number"
+              [currency]="'m³'"
+              [totalType]="'Avg Sales'"
+              [incrementalValue]="'50 m³'"
+              [arrowDirection]="'down'"
+            ></app-total-statistics>
+          </div>
+          <div class="col-md-3">
+            <!-- Total Statistics Component 4 -->
+            <app-total-statistics
+              [totalValue]="1567 | number"
+              [totalType]="'Total Transaction Count'"
+              [incrementalValue]="'20'"
+              [arrowDirection]="'up'"
+              [coloredIncremntal]="'#00CBC0'"
+            ></app-total-statistics>
+          </div>
+        </div>
+        <div class="row my-5">
+          <div class="col-md-12">
+            <div class="graph-list-switcher">
+              <div class="switcher-container">
+                <div
+                  class="graph-view"
+                  [class.active]="activatedView === 'graph'"
+                  (click)="switchView('graph')"
+                >
+                  <h3>
+                    <i class="material-icons">auto_graph</i>
+                    Graph
+                  </h3>
+                </div>
+                <div
+                  class="list-view"
+                  [class.active]="activatedView === 'list'"
+                  (click)="switchView('list')"
+                >
+                  <h3>
+                    <i class="material-icons">format_list_bulleted</i>
+                    List
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="row stations gy-4"
+          *ngIf="activatedView === 'list'"
+          style="max-height: 500px; overflow: auto; height: 100%"
+        >
+          <div class="col-md-12" *ngFor="let station of stationsList">
+            <!-- Station Card Component -->
+            <app-station-card [stations]="station"></app-station-card>
+          </div>
+        </div>
+        <div class="stations-graph" *ngIf="activatedView === 'graph'">
+          <div
+            class="head-title d-flex justify-content-between align-items-center"
+          >
+            <div class="title">
+              <h3>STATIONS ACTIVATES OVERVIEW</h3>
+            </div>
+            <div class="pages d-flex align-items-center">
+              <div class="page active">
+                <h3>SALES</h3>
+              </div>
+              <div class="page">
+                <h3>TRANSACTION</h3>
+              </div>
+              <div class="page">
+                <h3>VALUE</h3>
+              </div>
+              <div class="page">
+                <h3>COMPRESSION</h3>
+              </div>
+            </div>
+          </div>
+          <div class="graph-details">
+            <div id="chart">
+              <!-- Apex Chart Component for Graph -->
+              <apx-chart
+                [series]="chartOptions.series"
+                [chart]="chartOptions.chart"
+                [dataLabels]="chartOptions.dataLabels"
+                [plotOptions]="chartOptions.plotOptions"
+                [xaxis]="chartOptions.xaxis"
+                [stroke]="chartOptions.stroke"
+                [yaxis]="chartOptions.yaxis"
+                [title]="chartOptions.title"
+                [tooltip]="chartOptions.tooltip"
+                [legend]="chartOptions.legend"
+                [grid]="chartOptions.grid"
+                [colors]="chartOptions.colors"
+              ></apx-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 px-3">
+      <div class="radar-graph">
+        <div class="f-column">
+          <h3 class="title">Hourly Sales</h3>
+          <div class="chart-container mb-4" style="width: 250px; margin: auto">
+            <canvas #radarChart></canvas>
+          </div>
+        </div>
+        <div class="l-column">
+          <h3 class="title">Sales by Station</h3>
+          <div class="station-sales">
+            <div class="station" *ngFor="let station of stationsSales">
+              <!-- Station Sales Component -->
+              <app-station-sales [stations]="station"></app-station-sales>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
